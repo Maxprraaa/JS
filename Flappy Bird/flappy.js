@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
 		document.body.appendChild(divTuberiaInferior);
 		
 	}
-
+no se
 	document.addEventListener("keydown", function (event) {
 		detectarTecla(event);
 	});
