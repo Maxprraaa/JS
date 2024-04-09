@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 	var velocidadY = 0;
 	var VelocidadX = 1.5;
 	var salto = false;
-
+var muerto = false;
 	function generarTuberias() {
 		var espacioEntreTuberias = 50;
 		var anchoTuberia = 100;
@@ -61,21 +61,21 @@ window.addEventListener("load", () => {
 		}
 		var codigoTecla = event.keyCode || event.which;
 		// Detecta la tecla para iniciar el juego
-		if (codigoTecla == 13) {
-			if (!iniciado) {
+		if (codigoTecla == 13 && !iniciado) {
+			
 				iniciado = true;
 				divMensaje.innerHTML = "";
 				divScore_Puntos.innerHTML = "0";
 				divScoreText.innerHTML = "Score: ";
 				requestAnimationFrame(animarPajaro);
-			} else {
-				iniciado = false;
-				divScore_Puntos.innerHTML = "0";
-				velocidadY = 0;
-				divGameOver.innerHTML = "";
-				divMensaje.innerHTML = "Pulsa enter para comenzar";
-				divGameOver.innerHTML = "";
-			}
+		}else if (codigoTecla == 13 && iniciado && muerto){
+			iniciado = false;
+			muerto = false;
+			divScore_Puntos.innerHTML = "0";
+			velocidadY = 0;
+			divGameOver.innerHTML = "";
+			divMensaje.innerHTML = "Pulsa enter para comenzar";
+			divGameOver.innerHTML = "";
 		}
 		//  Movimiento salto
 		else if (iniciado && (codigoTecla == 32 || codigoTecla == 38) && !salto) {
@@ -106,6 +106,7 @@ window.addEventListener("load", () => {
 
 	function gameOver() {
 		divGameOver.innerHTML = "Game Over!";
+		muerto = true;
 	}
 	function animarPajaro() {
 		if (iniciado) {
