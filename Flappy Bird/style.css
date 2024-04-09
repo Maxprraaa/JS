@@ -24,10 +24,10 @@ body {
     z-index: 100; 
 } 
   
-#tuberia { 
+.tuberia { 
     position: fixed; 
     top: 40vh; 
-    left: 100vw; 
+    left: 90vw; 
     height: 70vh; 
     width: 6vw; 
     background-color: green; 
